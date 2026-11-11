@@ -1,0 +1,147 @@
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10151e">
+  <title>CNH Quest — Simulado teórico</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="CNH Quest início">
+        <span class="brand-mark">CQ</span>
+        <span>CNH<span class="brand-accent">QUEST</span></span>
+      </a>
+      <div class="topbar-note"><span class="live-dot"></span> MODO TREINO</div>
+    </header>
+
+    <main>
+      <section id="home-screen" class="screen">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">PREPARAÇÃO PARA A PROVA TEÓRICA</div>
+            <h1>Treine como se<br>fosse <span>valendo.</span></h1>
+            <p class="hero-text">Simulados com perguntas variadas, tempo de prova e um diagnóstico claro do que você já
+              domina e do que precisa reforçar.</p>
+            <div class="spec-row">
+              <div class="spec"><strong>30</strong><span>questões</span></div>
+              <div class="spec"><strong>60 min</strong><span>tempo mínimo oficial</span></div>
+              <div class="spec"><strong>20</strong><span>acertos para aprovação</span></div>
+            </div>
+            <button id="start-btn" class="primary-btn">Iniciar simulado <span>→</span></button>
+            <p class="microcopy">Sem cadastro. Sem ranking. O foco é medir seu conhecimento.</p>
+          </div>
+          <div class="hero-panel">
+            <div class="panel-top"><span>SEU OBJETIVO</span><span class="panel-icon">◈</span></div>
+            <div class="target-number">20<span>/30</span></div>
+            <div class="target-caption">acertos para atingir o mínimo de aprovação</div>
+            <div class="target-track"><span></span></div>
+            <div class="panel-foot"><span>Prova objetiva</span><span>4 alternativas · 1 correta</span></div>
+            <div class="panel-divider"></div>
+            <div class="area-preview">
+              <div><i class="area-dot dot-blue"></i>Sinalização viária</div>
+              <div><i class="area-dot dot-orange"></i>Infrações de trânsito</div>
+              <div><i class="area-dot dot-green"></i>Circulação e direção defensiva</div>
+              <div><i class="area-dot dot-purple"></i>Meio ambiente e primeiros socorros</div>
+            </div>
+          </div>
+        </div>
+        <div class="notice"><strong>Importante:</strong> as questões deste protótipo são autorais para estudo. Elas não
+          são apresentadas como cópias do Banco Nacional de Questões.</div>
+      </section>
+
+      <section id="exam-screen" class="screen hidden">
+        <div class="exam-header">
+          <div>
+            <div class="eyebrow">SIMULADO EM ANDAMENTO</div>
+            <h2>Prova teórica <span class="muted-title">/ Treino</span></h2>
+          </div>
+          <div class="timer-box">
+            <span class="timer-label">TEMPO RESTANTE</span>
+            <strong id="timer">60:00</strong>
+          </div>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-meta"><span id="progress-text">0 de 30 respondidas</span><span
+              id="question-counter">QUESTÃO 01 / 30</span></div>
+          <div class="progress-track"><span id="progress-bar"></span></div>
+        </div>
+        <div class="exam-layout">
+          <article class="question-card">
+            <div class="question-meta">
+              <span id="area-tag" class="area-tag">SINALIZAÇÃO VIÁRIA</span>
+              <span id="question-id" class="question-id">QUESTÃO 01</span>
+            </div>
+            <h3 id="question-text">Carregando pergunta...</h3>
+            <div id="options" class="options-list"></div>
+            <div class="question-footer">
+              <button id="prev-btn" class="secondary-btn">← Anterior</button>
+              <span id="answer-state" class="answer-state">Selecione uma alternativa</span>
+              <button id="next-btn" class="primary-btn small-btn">Próxima →</button>
+            </div>
+          </article>
+          <aside class="question-map">
+            <div class="map-title"><span>NAVEGAÇÃO</span><span id="answered-count">0/30</span></div>
+            <div id="question-grid" class="question-grid"></div>
+            <div class="map-legend"><span><i class="legend-dot answered"></i>Respondida</span><span><i
+                  class="legend-dot current"></i>Atual</span></div>
+            <button id="finish-btn" class="finish-btn">Finalizar simulado</button>
+            <p class="map-hint">Você pode voltar e alterar suas respostas antes de finalizar.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section id="result-screen" class="screen hidden">
+        <div class="result-heading">
+          <div class="eyebrow">SIMULADO CONCLUÍDO</div>
+          <h2 id="result-title">Seu resultado</h2>
+          <p id="result-subtitle" class="hero-text"></p>
+        </div>
+        <div class="result-overview">
+          <div class="score-card">
+            <span class="score-label">SEU DESEMPENHO</span>
+            <div class="score-number"><span id="score">0</span><small>/30</small></div>
+            <div id="result-status" class="status-pill">—</div>
+            <div class="score-track"><span id="score-bar"></span></div>
+            <div class="score-foot"><span id="accuracy">0% de aproveitamento</span><span id="elapsed">00:00</span></div>
+          </div>
+          <div class="diagnostic-card best">
+            <div class="diagnostic-label"><span class="diagnostic-symbol">↑</span> MAIOR DOMÍNIO NO SIMULADO</div>
+            <h3 id="best-area">—</h3>
+            <p id="best-detail">—</p>
+          </div>
+          <div class="diagnostic-card weak">
+            <div class="diagnostic-label"><span class="diagnostic-symbol">↗</span> PRIORIDADE DE ESTUDO</div>
+            <h3 id="weak-area">—</h3>
+            <p id="weak-detail">—</p>
+          </div>
+        </div>
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">DIAGNÓSTICO</div>
+            <h3>Desempenho por área</h3>
+          </div><span class="subtle-note">Baseado nas questões deste simulado</span>
+        </div>
+        <div id="area-results" class="area-results"></div>
+        <div class="section-heading review-heading">
+          <div>
+            <div class="eyebrow">REVISÃO</div>
+            <h3>Questões e comentários</h3>
+          </div>
+        </div>
+        <div id="review-list" class="review-list"></div>
+        <div class="result-actions">
+          <button id="new-exam-btn" class="primary-btn">Fazer novo simulado <span>↻</span></button>
+          <button id="home-btn" class="secondary-btn">Voltar ao início</button>
+        </div>
+      </section>
+    </main>
+    <footer>CNH QUEST <span>•</span> Protótipo de estudo offline</footer>
+  </div>
+  <script type="module" src="./app.js"></script>
+</body>
+
+</html>
